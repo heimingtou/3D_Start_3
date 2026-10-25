@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://dyptg3xhtdvyb"]
+
+[ext_resource type="Script" uid="uid://c81c4g0omx6g5" path="res://levels/objects/platform/door.gd" id="1_5s4xo"]
+[ext_resource type="Script" uid="uid://b2eobbyacfwr1" path="res://scripts/interactive_area_3d.gd" id="1_bd344"]
+[ext_resource type="Texture2D" uid="uid://c1ilwd5wqggpq" path="res://assets/sprites/door/closing.png" id="2_ap0v2"]
+[ext_resource type="Texture2D" uid="uid://dvxpyrrbvbfqo" path="res://assets/sprites/door/idle.png" id="3_2awxx"]
+[ext_resource type="Texture2D" uid="uid://ca8bjsnpsw6hy" path="res://assets/sprites/door/opening.png" id="4_cdobh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umjtw"]
+atlas = ExtResource("2_ap0v2")
+region = Rect2(0, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhwd3"]
+atlas = ExtResource("2_ap0v2")
+region = Rect2(46, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y00f"]
+atlas = ExtResource("2_ap0v2")
+region = Rect2(92, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fune"]
+atlas = ExtResource("3_2awxx")
+region = Rect2(0, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk6nx"]
+atlas = ExtResource("4_cdobh")
+region = Rect2(0, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1nvs"]
+atlas = ExtResource("4_cdobh")
+region = Rect2(46, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t053v"]
+atlas = ExtResource("4_cdobh")
+region = Rect2(92, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svedi"]
+atlas = ExtResource("4_cdobh")
+region = Rect2(138, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ntnh"]
+atlas = ExtResource("4_cdobh")
+region = Rect2(184, 0, 46, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mbxxj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umjtw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhwd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5y00f")
+}],
+"loop": 0,
+"name": &"closing",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fune")
+}],
+"loop": 0,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qk6nx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1nvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t053v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svedi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ntnh")
+}],
+"loop": 0,
+"name": &"opening",
+"speed": 10.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tmox4"]
+size = Vector3(2.8, 3.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kdswm"]
+size = Vector3(2.4, 2.4, 1.6)
+
+[node name="Door" type="Node3D" unique_id=502984442]
+script = ExtResource("1_5s4xo")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1819026800]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5190697, 0, 0)
+offset = Vector2(0, 28)
+pixel_size = 0.0625
+billboard = 1
+alpha_cut = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_mbxxj")
+animation = &"opening"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1297307675]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=404994638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
+shape = SubResource("BoxShape3D_tmox4")
+
+[node name="InteractiveArea3D" type="Area3D" parent="." unique_id=1898507866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.2)
+script = ExtResource("1_bd344")
+prompt_height = 4.0
+metadata/_custom_type_script = "uid://b2eobbyacfwr1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractiveArea3D" unique_id=1895965692]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+shape = SubResource("BoxShape3D_kdswm")
+
+[node name="Spawn" type="Marker3D" parent="." unique_id=923024251]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 3.2)

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b6sdd26cn73h"]
+
+[ext_resource type="Script" uid="uid://ddw2yke7miv43" path="res://levels/objects/platform/moving_platform.gd" id="1_px6le"]
+[ext_resource type="Texture2D" uid="uid://banh2b12y26x4" path="res://assets/sprites/moving_platform/moving_platform.png" id="2_2n40o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_orua6"]
+albedo_texture = ExtResource("2_2n40o")
+uv1_scale = Vector3(2, 2, 2)
+uv1_offset = Vector3(0.5, 0, 0)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_jpyye"]
+material = SubResource("StandardMaterial3D_orua6")
+size = Vector3(4, 0.5, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o88mx"]
+size = Vector3(4, 0.5, 4)
+
+[node name="moving_platform" type="AnimatableBody3D" unique_id=264725686]
+collision_mask = 0
+script = ExtResource("1_px6le")
+speed = 5.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=189969305]
+mesh = SubResource("BoxMesh_jpyye")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=748399190]
+shape = SubResource("BoxShape3D_o88mx")
