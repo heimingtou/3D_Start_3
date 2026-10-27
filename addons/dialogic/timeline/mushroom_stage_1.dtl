@@ -6,6 +6,9 @@ else
 	mushroom: Muốn qua thế giới đó ngươi phải chứng minh bản thân đủ mạnh. Ngươi có chấp nhận thử thách không.
 	- Có ta sẵn sàng
 		foxy:Ta chấp nhận thử thách của ngươi.
+		do GameManager.unlock_door("changleng")
 		mushroom: Hãy mở cánh cửa bên kia để bắt đầu thử thách tiêu diệt tất cả quái trên đảo
 	- Ta nghỉ ta cần luyện tập thêm
 		foxy:Ta cần thời gian để luyện tập thêm.
+		mushroom: Ta sẽ đưa ngươi đến không gian luyện tập
+		do GameManager._Practice()

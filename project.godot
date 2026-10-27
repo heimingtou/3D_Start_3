@@ -32,6 +32,7 @@ directories/dch_directory={
 "mushroom": "res://addons/dialogic/Character/mushroom.dch"
 }
 directories/dtl_directory={
+"Practice_stage": "res://addons/dialogic/timeline/Practice_stage.dtl",
 "door_locked": "res://addons/dialogic/timeline/door_locked.dtl",
 "example_dialog": "res://addons/dialogic/timeline/example_dialog.dtl",
 "first_dialog": "res://addons/dialogic/timeline/first_dialog.dtl",

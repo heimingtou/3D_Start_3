@@ -14,6 +14,8 @@ signal stage_changed(stage: Stage)
 ## checkpoint.
 const FIRST_STAGE := "res://levels/level_1/stage_1.tscn"
 
+const  Stage_Practice:="res://levels/level_2/stage_1.tscn"
+
 var current_stage: Stage = null
 ## Where the next stage puts the fox: a door id or a checkpoint id. "" = the stage's default spot
 ## (wherever the Player node sits in the scene).
@@ -29,12 +31,15 @@ var player_health := -1
 var _changing := false
 var _booted := false
 
+var enemy_factory: Node3DFactory = null
 
 
 func _ready() -> void:
 	load_game()
 	get_tree().scene_changed.connect(_on_scene_changed)
 
+func _Practice() -> void:
+	change_stage(Stage_Practice)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("new_game"):
@@ -92,6 +97,7 @@ func is_changing() -> bool:
 ## their parent.
 func register_stage(stage: Stage) -> void:
 	current_stage = stage
+	findFactoryEnemy()
 	_changing = false
 	stage.player.died.connect(respawn)
 	if not _booted:
@@ -192,3 +198,9 @@ func reset() -> void:
 	player_health = -1
 	_changing = false
 	_booted = false
+
+
+func findFactoryEnemy()->void:
+	var found_node = current_stage.find_child("enemyFactory", true, false)
+	if found_node:
+		enemy_factory = found_node

@@ -1,36 +1,33 @@
-[gd_scene load_steps=14 format=3]
+[gd_scene format=3 uid="uid://bf75aea51pcxa"]
 
 [ext_resource type="PackedScene" path="res://scenes/base_character.tscn" id="1_base"]
-[ext_resource type="Script" path="res://scenes/enemies/starfish/starfish.gd" id="2_starfish"]
-[ext_resource type="Texture2D" path="res://assets/monsters/starfish/starfish_sprite_sheet.png" id="3_sheet"]
-[ext_resource type="AnimationLibrary" path="res://scenes/enemies/starfish/starfish_anims.tres" id="4_anims"]
-[ext_resource type="Script" path="res://scenes/enemies/starfish/states/run.gd" id="5_run"]
-[ext_resource type="Script" path="res://scenes/enemies/starfish/states/attack.gd" id="6_attack"]
-[ext_resource type="Script" path="res://scenes/enemies/states/hurt.gd" id="7_hurt"]
-[ext_resource type="Script" path="res://scenes/enemies/states/dead.gd" id="8_dead"]
-[ext_resource type="Script" path="res://scripts/hit_area_3d.gd" id="9_hit_area"]
-[ext_resource type="Script" path="res://scripts/hurt_area_3d.gd" id="10_hurt_area"]
+[ext_resource type="Script" uid="uid://h3wbo1bro7xh" path="res://scenes/enemies/starfish/starfish.gd" id="2_starfish"]
+[ext_resource type="Texture2D" uid="uid://b35vlmttvdep3" path="res://assets/monsters/starfish/starfish_sprite_sheet.png" id="3_sheet"]
+[ext_resource type="AnimationLibrary" uid="uid://b6mdwitmfk172" path="res://scenes/enemies/starfish/starfish_anims.tres" id="4_anims"]
+[ext_resource type="Script" uid="uid://whko3o5lnsn0" path="res://scenes/enemies/starfish/states/run.gd" id="5_run"]
+[ext_resource type="Script" uid="uid://cbsyhd8li4pmd" path="res://scenes/enemies/starfish/states/attack.gd" id="6_attack"]
+[ext_resource type="Script" uid="uid://cavrnd83h7ldu" path="res://scenes/enemies/states/hurt.gd" id="7_hurt"]
+[ext_resource type="Script" uid="uid://c4dbahumsabb" path="res://scenes/enemies/states/dead.gd" id="8_dead"]
+[ext_resource type="Script" uid="uid://bvv36o7f0oebf" path="res://scripts/hit_area_3d.gd" id="9_hit_area"]
+[ext_resource type="Script" uid="uid://coy8holsj103m" path="res://scripts/hurt_area_3d.gd" id="10_hurt_area"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_body"]
-radius = 0.55
-height = 1.1
+[sub_resource type="BoxShape3D" id="BoxShape3D_sight"]
+size = Vector3(4, 2, 8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hit"]
 size = Vector3(1.4, 1, 1.4)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hurt"]
-radius = 0.5
 height = 1.0
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_sight"]
-size = Vector3(4, 2, 8)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_body"]
+radius = 0.55
+height = 1.1
 
-[node name="Starfish" instance=ExtResource("1_base")]
+[node name="Starfish" unique_id=1421816982 instance=ExtResource("1_base")]
 collision_layer = 8
-collision_mask = 1
 script = ExtResource("2_starfish")
 movement_speed = 2.0
-max_health = 3
 
 [node name="Sprite3D" parent="." index="0"]
 offset = Vector2(0, 14.5)
@@ -41,40 +38,37 @@ vframes = 12
 [node name="AnimationPlayer" parent="." index="1"]
 libraries/ = ExtResource("4_anims")
 
-[node name="FrontRayCast3D" type="RayCast3D" parent="Direction" index="0"]
+[node name="FrontRayCast3D" type="RayCast3D" parent="Direction" index="0" unique_id=271635282]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 target_position = Vector3(0, 0, 1)
-collision_mask = 1
 
-[node name="DownRayCast3D" type="RayCast3D" parent="Direction" index="1"]
+[node name="DownRayCast3D" type="RayCast3D" parent="Direction" index="1" unique_id=423187833]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.9)
 target_position = Vector3(0, -1.5, 0)
-collision_mask = 1
 
-[node name="DetectPlayerArea3D" type="Area3D" parent="Direction" index="2"]
+[node name="DetectPlayerArea3D" type="Area3D" parent="Direction" index="2" unique_id=455983577]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Direction/DetectPlayerArea3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Direction/DetectPlayerArea3D" index="0" unique_id=1121087338]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
 shape = SubResource("BoxShape3D_sight")
 
-[node name="HitArea3D" type="Area3D" parent="Direction" index="3"]
+[node name="HitArea3D" type="Area3D" parent="Direction" index="3" unique_id=1604533604]
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("9_hit_area")
-damage = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Direction/HitArea3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Direction/HitArea3D" index="0" unique_id=1102142192]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_hit")
 
-[node name="HurtArea3D" type="Area3D" parent="Direction" index="4"]
+[node name="HurtArea3D" type="Area3D" parent="Direction" index="4" unique_id=1594055265]
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("10_hurt_area")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Direction/HurtArea3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Direction/HurtArea3D" index="0" unique_id=975478218]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_hurt")
 
@@ -82,14 +76,14 @@ shape = SubResource("CapsuleShape3D_hurt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
 shape = SubResource("CapsuleShape3D_body")
 
-[node name="Run" type="Node" parent="States" index="0"]
+[node name="Run" type="Node" parent="States" index="0" unique_id=1866844304]
 script = ExtResource("5_run")
 
-[node name="Attack" type="Node" parent="States" index="1"]
+[node name="Attack" type="Node" parent="States" index="1" unique_id=921523579]
 script = ExtResource("6_attack")
 
-[node name="Hurt" type="Node" parent="States" index="2"]
+[node name="Hurt" type="Node" parent="States" index="2" unique_id=1425217804]
 script = ExtResource("7_hurt")
 
-[node name="Dead" type="Node" parent="States" index="3"]
+[node name="Dead" type="Node" parent="States" index="3" unique_id=2069435888]
 script = ExtResource("8_dead")

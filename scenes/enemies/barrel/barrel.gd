@@ -13,6 +13,8 @@ func _ready() -> void:
 	fsm = FSM.new(self, $States, $States/Idle)
 	super._ready()
 
+func _spaw():
+	pass
 
 ## Spawns a bullet at the muzzle then pushes it along the facing direction.
 func fire() -> void:
