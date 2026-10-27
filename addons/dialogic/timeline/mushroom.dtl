@@ -1,0 +1,11 @@
+if GameManager.is_door_unlocked("gate"):
+	mushroom: Cua sang dao ben kia mo roi do. Cao di can than nhe!
+else:
+	mushroom: Chao Cao! Ta la Nam, nguoi giu canh cua tren buc cao.
+	mushroom: Ben kia cua la dao cua dan cua du. Cao co muon sang đo không?
+	- Có, mở cửa giúp ta!
+		foxy: Ta khong so cua đau!
+		do GameManager.unlock_door("gate")
+		mushroom: Dung cam lam! Cua mo roi đo.
+	- Thôi, đe luc khac
+		mushroom: Khi nao san sang thì quay lai tim ta nhe.

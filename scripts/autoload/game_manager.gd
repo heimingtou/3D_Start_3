@@ -30,6 +30,7 @@ var _changing := false
 var _booted := false
 
 
+
 func _ready() -> void:
 	load_game()
 	get_tree().scene_changed.connect(_on_scene_changed)
@@ -45,7 +46,7 @@ func _unhandled_input(event: InputEvent) -> void:
 ## ("" = the stage's default spot). `keep_health` = false for respawning and new games: full
 ## health.
 func change_stage(stage_path: String, spawn_name: String = "", keep_health: bool = true) -> void:
-	print("change")
+
 	if _changing:
 		return    # already switching — a second press of F, for example
 	if not ResourceLoader.exists(stage_path):
@@ -138,6 +139,7 @@ func set_checkpoint(stage_path: String, id: String) -> void:
 func unlock_door(flag: String) -> void:
 	flags[flag] = true
 	save_game()
+	
 
 
 func is_door_unlocked(flag: String) -> bool:
@@ -169,6 +171,16 @@ func new_game() -> void:
 	_booted = true    # nothing left to continue
 	change_stage(FIRST_STAGE, "", false)
 
+
+func Check_enemy_die()->bool:
+
+	var enemy_node=current_stage.get_node("Enemies")
+	var count=0
+	if enemy_node:
+		count= enemy_node.get_child_count()
+	if count==0:
+		return true
+	return false
 
 ## Forgets everything held in memory, as if the game had just started without a save file.
 func reset() -> void:

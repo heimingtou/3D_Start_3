@@ -20,6 +20,7 @@ var home := Vector3.ZERO
 @onready var agent: PathAgent = $PathAgent
 @onready var talk_area: InteractiveArea3D = $InteractiveArea3D
 
+@export var name_dialogic="mushroom"
 
 func _ready() -> void:
 	fsm = FSM.new(self, $States, $States/Idle)
@@ -66,5 +67,10 @@ func steer_along_path() -> void:
 
 ## F next to the mushroom: talk. For now only a line in the Output panel; part 7 starts a dialogue
 ## here instead.
+## F next to the mushroom: talk. The fox is whoever stands in the talk zone.
+## F next to the mushroom: talk. The fox is whoever stands in the talk zone.
 func _on_talk_area_interacted() -> void:
-	print("On talk area interacted!")
+	for body: Node3D in talk_area.get_overlapping_bodies():
+		if body is Player:
+			Conversation.play(name_dialogic, body, self)
+			return

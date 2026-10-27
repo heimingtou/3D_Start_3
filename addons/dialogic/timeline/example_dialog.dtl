@@ -1,45 +1,43 @@
-# Dialogic 2 timeline syntax, by example.
-# Goes in res://dialog/timelines/example_timeline.dtl. Needs the Dialogic variable PlayerScore
-# (Dialogic tab, Variables) and the characters foxy and mushroom. Indent with tabs.
-mushroom: Chào Cáo! Ta đang thử cú pháp của Dialogic.[pause=0.5] Cáo sẵn sàng chưa?
+mushroom: Chao Cao! Ta dang thu cu phap cua Dialogic. [pause=0.5] Cao sẵn sàng chưa?
 
-
-foxy: Sẵn sàng! Thử một câu viết trên nhiều dòng. \
+foxy: San sang! Thu mot cau viet tren nhieu dong. \
 Đây là dòng thứ hai, \
 và dòng thứ ba!
 
-
-mushroom: Ta cho Cáo 10 điểm để bắt đầu.
+mushroom: Ta cho Cao 10 diem de bat dau.
 # Set a variable
 set {PlayerScore} = 10
 # A label: where "jump Menu" comes back to
-label Menu (Chọn lại)
+label Menu (Chon lại)
 # Choices, with conditions
-- Tăng điểm | [if {PlayerScore} < 20]
-    set {PlayerScore} += 10
-    foxy: Điểm tăng rồi! Bây giờ là {PlayerScore}.
-- Giảm điểm | [if {PlayerScore} > 5] [else="disable"]
-    set {PlayerScore} -= 5
-    mushroom: Điểm giảm còn {PlayerScore}, cẩn thận!
+- Tăng điềm | [if {PlayerScore} < 20]
+	set {PlayerScore} += 10
+	foxy: Diem tang roi! Bay gio là {PlayerScore}.
+- Giảm điềm | [if {PlayerScore} > 5] [else="disable"]
+	set {PlayerScore} -= 5
+	mushroom: Điem giam con {PlayerScore}, can thận!
 - Đi tiếp
-
 
 # Conditions: if / elif / else
 if {PlayerScore} >= 10:
-    mushroom: Điểm cao! Cáo giỏi đấy.
+	mushroom: Điem cao! Cao giỏi đấy.
 elif {PlayerScore} == 5:
-    foxy: Điểm thấp quá, chọn lại thôi.
-    jump Menu
+	foxy: Diem thap qua, chon lai thôi.
+	# #jump Menu
 else:
-    mushroom: Điểm thấp, chọn lại nhé.
-    jump Menu
+	mushroom: Diem thap, chon lai nhe.
+	# #jump Menu
 
+mushroom: Vừa roi la bien, lựa chọn, điều kiện và jump. \
+[pause=1] Gio toi goi ham cua game.
 
-mushroom: Vừa rồi là biến, lựa chọn, điều kiện và jump. \
-[pause=1] Giờ tới gọi hàm của game.
+# Call a function of an autoload: "do" calls it, "if" asks it
+mushroom: Vừa roi la bien, lua chon, đieu kien va jump. \
+[pause=1] Gio toi goi ham cua game.
+
 # Call a function of an autoload: "do" calls it, "if" asks it
 do GameManager.unlock_door("example")
 if GameManager.is_door_unlocked("example"):
-    foxy: GameManager đã ghi cờ "example" — và lưu luôn vào file lưu.
+	foxy: GameManager da ghi co "example" - va luu luon vao file luu.
 # End the timeline (optional: it also ends after its last line)
 [end_timeline]

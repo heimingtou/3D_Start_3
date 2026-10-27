@@ -22,4 +22,4 @@ func _on_body_entered(body: Node3D) -> void:
 ## `owner' is the root of the scene this checkpoint was saved in - thestage.
 func _is_current() -> bool:
 	return owner is Stage and GameManager.checkpoint_id == id \
-	and GameManager . checkpoint_stage == owner.scene_file_path
+	and GameManager.checkpoint_stage == owner.scene_file_path

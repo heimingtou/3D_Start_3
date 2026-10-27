@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://bvv36o7f0oebf" path="res://scripts/hit_area_3d.gd" id="13_hit_area"]
 [ext_resource type="Script" uid="uid://cp0s8x1y1c0dy" path="res://scenes/player/states/carry.gd" id="14_carry"]
 [ext_resource type="Script" uid="uid://dxuu0cmvs4nmb" path="res://scenes/player/states/throw.gd" id="15_throw"]
-[ext_resource type="Script" path="res://scenes/player/states/talk.gd" id="16_talk"]
+[ext_resource type="Script" uid="uid://dm5ur4txp61cd" path="res://scenes/player/states/talk.gd" id="16_talk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hurt"]
 radius = 0.6
@@ -106,7 +106,7 @@ script = ExtResource("14_carry")
 [node name="Throw" type="Node" parent="States" index="8" unique_id=460928618]
 script = ExtResource("15_throw")
 
-[node name="Talk" type="Node" parent="States" index="9"]
+[node name="Talk" type="Node" parent="States" index="9" unique_id=113751816]
 script = ExtResource("16_talk")
 
 [node name="HoldPoint" type="Marker3D" parent="." index="5" unique_id=321246195]

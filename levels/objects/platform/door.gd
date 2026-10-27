@@ -7,6 +7,7 @@ extends Node3D
 @export var type_door:=""
 @export var locked := false
 @export var unlock_flag := ""
+@export var dialogic_name:="door_locked"
 
 @onready var _sprite: AnimatedSprite3D = $AnimatedSprite3D
 
@@ -16,23 +17,34 @@ func _ready() -> void:
 	var arriving := id != "" and GameManager.pending_spawn == id
 	_sprite.play("closing" if arriving else "idle")
 
+
+
 func is_locked() -> bool:
 	return locked and not GameManager.is_door_unlocked(unlock_flag)
 
 func _on_interacted() -> void:
 	if is_locked():
+		print("dang lock")
 		_tell_locked()
-		
 		return
+
 	if _sprite.animation == "opening":
 		return# already opening - a second press changes nothing
 	_sprite.play("opening")
 	await _sprite.animation_finished
-	print("changeState")
+	_sprite.play("idle")
+
 	if type_door=="next":
 		GameManager.change_stage(target_stage, target_door)
 	if type_door=="go":
 		GameManager._Go_next_door(target_door)
-	print("changeState")
+
 func _tell_locked() -> void:
-	print("Cua khoa roi ... Chac phai hoi Nam ở lang.")
+	for body: Node3D in $InteractiveArea3D.get_overlapping_bodies():
+		if body is Player:
+			Conversation.play(dialogic_name, body)
+			return
+#func Unlock_stage()-> void:
+	#print(locked)
+	#if GameManager.Check_enemy_die():
+		#GameManager.unlock_door(unlock_flag)	

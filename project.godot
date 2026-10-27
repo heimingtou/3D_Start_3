@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ZPS Practice 4 - 3D Start"
-run/main_scene="res://levels/level_1/stage_1.tscn"
+run/main_scene="uid://co4chcmkinjqb"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -32,8 +32,12 @@ directories/dch_directory={
 "mushroom": "res://addons/dialogic/Character/mushroom.dch"
 }
 directories/dtl_directory={
+"door_locked": "res://addons/dialogic/timeline/door_locked.dtl",
 "example_dialog": "res://addons/dialogic/timeline/example_dialog.dtl",
-"first_dialog": "res://addons/dialogic/timeline/first_dialog.dtl"
+"first_dialog": "res://addons/dialogic/timeline/first_dialog.dtl",
+"foxy": "res://addons/dialogic/timeline/foxy.dtl",
+"mushroom": "res://addons/dialogic/timeline/mushroom.dtl",
+"mushroom_stage_1": "res://addons/dialogic/timeline/mushroom_stage_1.dtl"
 }
 layout/style_directory={
 "": "res://addons/dialogic/custom/example_style.tres",
@@ -79,6 +83,7 @@ text/input_action="interact"
 variables={
 "Score": 0.0
 }
+portraits/default_portrait="res://levels/level_2/stage_1.tscn"
 
 [display]
 
