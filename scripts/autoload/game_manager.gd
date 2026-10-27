@@ -179,7 +179,6 @@ func new_game() -> void:
 
 
 func Check_enemy_die()->bool:
-
 	var enemy_node=current_stage.get_node("Enemies")
 	var count=0
 	if enemy_node:

@@ -2,7 +2,7 @@
 "@path": "res://addons/dialogic/Resources/character.gd",
 "@subpath": NodePath(""),
 &"_translation_id": "",
-&"color": Color(0.08640623, 0.36236605, 0.9875, 1),
+&"color": Color(0.04819337, 0.16827528, 0.734375, 1),
 &"custom_info": {
 "prefix": "",
 "sound_mood_default": "",
@@ -23,8 +23,8 @@
 },
 "mirror": false,
 "offset": Vector2(0, 0),
-"scale": 0.88,
-"scene": ""
+"scale": 1,
+"scene": "res://addons/dialogic/Modules/Character/default_portrait.tscn"
 }
 },
 &"scale": 1.0

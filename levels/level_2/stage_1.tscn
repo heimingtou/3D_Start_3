@@ -6,13 +6,13 @@
 [ext_resource type="MeshLibrary" uid="uid://ohm3771jyopt" path="res://assets/meshes/forest_library.meshlib" id="3_pgsnj"]
 [ext_resource type="PackedScene" uid="uid://65gpamtlsq5j" path="res://scenes/objects/sea_water.tscn" id="5_msmrf"]
 [ext_resource type="PackedScene" uid="uid://clxulon4q7jr" path="res://scenes/player/player.tscn" id="6_p1lc4"]
-[ext_resource type="PackedScene" path="res://scenes/enemies/barrel/barrel.tscn" id="7_h8i2v"]
-[ext_resource type="PackedScene" uid="uid://bf75aea51pcxa" path="res://scenes/enemies/starfish/starfish.tscn" id="8_kwc8v"]
 [ext_resource type="PackedScene" uid="uid://bb1axnscuosow" path="res://scenes/enemies/crab/crab.tscn" id="9_klvlr"]
 [ext_resource type="Script" uid="uid://bec57758p7ipw" path="res://scripts/node3d_factory.gd" id="12_kijws"]
 [ext_resource type="PackedScene" uid="uid://crb65yxteq68h" path="res://levels/objects/checkpoint/checkpoint.tscn" id="12_klvlr"]
 [ext_resource type="PackedScene" uid="uid://bin04kt6e8e77" path="res://levels/objects/platform/path_platform_straight.tscn" id="13_kijws"]
 [ext_resource type="PackedScene" uid="uid://cyd0sawt2mi8j" path="res://scenes/npcs/mushroom_npc.tscn" id="14_h8i2v"]
+[ext_resource type="PackedScene" uid="uid://bo4fpbbdn3et1" path="res://levels/objects/enemy_zone/enemy_zone.tscn" id="14_kwc8v"]
+[ext_resource type="Script" uid="uid://ddrqk72ngkeg7" path="res://scripts/grid_pathfinder.gd" id="15_ffvfi"]
 [ext_resource type="PackedScene" path="res://levels/objects/kill_zone/kill_zone.tscn" id="15_kwc8v"]
 [ext_resource type="PackedScene" uid="uid://dyptg3xhtdvyb" path="res://levels/objects/platform/door.tscn" id="15_tiiqc"]
 
@@ -45,23 +45,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.969778, 4.575947, -13.964
 transform = Transform3D(0.7403908, 0.66654295, 0.08684544, -0.43767628, 0.3799937, 0.81488925, 0.5101578, -0.6413466, 0.5730737, 0, 15.281157, 0)
 
 [node name="Enemies" type="Node3D" parent="." unique_id=1635796602]
-
-[node name="Crab3" parent="Enemies" unique_id=953484487 instance=ExtResource("9_klvlr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8027077, 5.5428953, -7.9395123)
-
-[node name="Barrel" parent="Enemies" unique_id=615702781 instance=ExtResource("7_h8i2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2844944, 0)
-bullet_speed = 12.0
-
-[node name="Starfish" parent="Enemies" unique_id=94843434 instance=ExtResource("8_kwc8v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.924814, 8.022683, -27.677174)
-
-[node name="Barrel2" parent="Enemies" unique_id=1475051329 instance=ExtResource("7_h8i2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.24435, 6.96875, 39.668163)
-bullet_speed = 12.0
-
-[node name="Crab2" parent="Enemies" unique_id=711224200 instance=ExtResource("9_klvlr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.37119, 5.5428953, 6.9566708)
 
 [node name="Bullets" type="Node3D" parent="." unique_id=756582942]
 transform = Transform3D(0.575184, 0.780065, 0.2462964, -0.2628521, 0.461365, -0.84737897, -0.7746431, 0.42265928, 0.47041154, 0, 6.245943, 2.3408709)
@@ -99,3 +82,11 @@ target_stage = "uid://402a5bwyel2t"
 target_door = "Go_door_2"
 type_door = "next"
 dialogic_name = ""
+
+[node name="EnemyZone" parent="." unique_id=667648798 instance=ExtResource("14_kwc8v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.958239, 2.6944199, -18.451479)
+max_enemies = 10
+
+[node name="Pathfinder" type="Node" parent="." unique_id=1119532794 node_paths=PackedStringArray("floor_map")]
+script = ExtResource("15_ffvfi")
+floor_map = NodePath("../Forest")

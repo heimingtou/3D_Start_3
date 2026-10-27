@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" path="res://scenes/camera/camera_rig.tscn" id="4_d1jpg"]
 [ext_resource type="PackedScene" uid="uid://clxulon4q7jr" path="res://scenes/player/player.tscn" id="5_hwxdp"]
 [ext_resource type="PackedScene" uid="uid://bb1axnscuosow" path="res://scenes/enemies/crab/crab.tscn" id="6_iqe3t"]
-[ext_resource type="PackedScene" path="res://scenes/enemies/barrel/barrel.tscn" id="7_xnfq6"]
+[ext_resource type="PackedScene" uid="uid://bg8d2alrvsrrq" path="res://scenes/enemies/barrel/barrel.tscn" id="7_xnfq6"]
 [ext_resource type="PackedScene" uid="uid://bf75aea51pcxa" path="res://scenes/enemies/starfish/starfish.tscn" id="8_7jdd4"]
 [ext_resource type="PackedScene" uid="uid://b6sdd26cn73h" path="res://levels/objects/platform/moving_Platform.tscn" id="9_3g1wb"]
 [ext_resource type="PackedScene" uid="uid://cd34co81npyew" path="res://levels/objects/platform/path_platform.tscn" id="10_378j5"]
@@ -42,7 +42,7 @@ target = NodePath("../Player")
 environment = SubResource("Environment_jpyye")
 
 [node name="Player" parent="." unique_id=1010956037 instance=ExtResource("5_hwxdp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.234596, 4.8062096, 43.46916)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.692947, 4.8062096, 43.46916)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1630839229]
 transform = Transform3D(0.7403908, 0.66654295, 0.08684544, -0.43767628, 0.3799937, 0.81488925, 0.5101578, -0.6413466, 0.5730737, 0, 15.281157, 0)
@@ -51,15 +51,12 @@ transform = Transform3D(0.7403908, 0.66654295, 0.08684544, -0.43767628, 0.379993
 
 [node name="Barrel2" parent="Enemies" unique_id=1475051329 instance=ExtResource("7_xnfq6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2380905, 6.96875, 2.128212)
-bullet_speed = 12.0
 
 [node name="Barrel" parent="Enemies" unique_id=70929384 instance=ExtResource("7_xnfq6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.756197, 6.96875, -13.567125)
-bullet_speed = 12.0
 
 [node name="Barrel3" parent="Enemies" unique_id=307635849 instance=ExtResource("7_xnfq6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.756197, 6.96875, -28.698864)
-bullet_speed = 12.0
 
 [node name="Crab" parent="Enemies" unique_id=1431278685 instance=ExtResource("6_iqe3t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.747719, 4.78125, -17.377073)
@@ -101,7 +98,7 @@ target_door = "Go_door_2"
 type_door = "go"
 
 [node name="Door2" parent="." unique_id=1287865084 instance=ExtResource("13_7dpwh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.02833, 4.170892, 43.65496)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.581047, 4.170891, 43.65496)
 id = "Go_door_2"
 target_stage = "uid://402a5bwyel2t"
 target_door = "Go_door_1"

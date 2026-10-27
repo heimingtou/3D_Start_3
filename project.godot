@@ -29,6 +29,7 @@ Dialogic="*uid://ds2q0uclmolvu"
 
 directories/dch_directory={
 "character": "res://addons/dialogic/Character/character.dch",
+"foxy": "res://addons/dialogic/Character/foxy.dch",
 "mushroom": "res://addons/dialogic/Character/mushroom.dch"
 }
 directories/dtl_directory={
@@ -41,12 +42,11 @@ directories/dtl_directory={
 "mushroom_stage_1": "res://addons/dialogic/timeline/mushroom_stage_1.dtl"
 }
 layout/style_directory={
-"": "res://addons/dialogic/custom/example_style.tres",
-"dialogic_style": "res://addons/dialogic/custom/dialogic_style.tres",
-"example_style": "res://addons/dialogic/custom/example_style.tres"
+"": "res://addons/dialogic/custom/dialogic.tres",
+"dialogic": "res://addons/dialogic/custom/dialogic.tres"
 }
-layout/style_list=["res://addons/dialogic/custom/example_style.tres", "res://addons/dialogic/custom/dialogic_style.tres"]
-layout/default_style="res://addons/dialogic/custom/example_style.tres"
+layout/style_list=["res://addons/dialogic/custom/dialogic.tres"]
+layout/default_style="res://addons/dialogic/custom/dialogic.tres"
 glossary/default_case_sensitive=true
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true

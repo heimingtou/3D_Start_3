@@ -6,7 +6,7 @@ func _enter() -> void:
 	
 	obj.change_animation("dead")
 	obj.stop_move()
-	obj._spaw()
+	#obj._spaw()
 	# Disable all collision: a dead body shouldn't block the way, shouldn't hit anyone, and
 	# shouldn't take more damage. Use set_deferred instead of assigning directly — changing a
 	# collision shape while the engine is mid-collision-pass triggers the "Can't change this state

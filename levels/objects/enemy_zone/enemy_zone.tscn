@@ -1,12 +1,12 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bo4fpbbdn3et1"]
 
-[ext_resource type="Script" path="res://levels/objects/enemy_zone/enemy_zone.gd" id="1_zone"]
+[ext_resource type="Script" uid="uid://dtvkuvpkfoemc" path="res://levels/objects/enemy_zone/enemy_zone.gd" id="1_zone"]
 [ext_resource type="PackedScene" path="res://scenes/enemies/zone_crab/zone_crab.tscn" id="2_zone_crab"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_zone"]
-size = Vector3(8, 2, 8)
+size = Vector3(10.796768, 2, 11.318939)
 
-[node name="EnemyZone" type="Area3D"]
+[node name="EnemyZone" type="Area3D" unique_id=667648798]
 collision_layer = 0
 collision_mask = 0
 monitoring = false
@@ -14,9 +14,9 @@ monitorable = false
 script = ExtResource("1_zone")
 enemy_scene = ExtResource("2_zone_crab")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1470744399]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4438095, 1, -0.15602112)
 shape = SubResource("BoxShape3D_zone")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=472539704]
 wait_time = 4.0
